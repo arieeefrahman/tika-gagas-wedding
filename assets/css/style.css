@@ -722,7 +722,7 @@ textarea {
     }
     
     #hero-section .hero-bottom {
-        padding-bottom: 10rem;
+        padding-bottom: 8rem;
     }
 }
 
@@ -748,4 +748,27 @@ textarea {
 #footer-section .margin-custom-bottom-page {
     margin-bottom: 100px;
     font-size: 20px;
+}
+
+#tamu {
+    font-size: 20px;
+    display: block;
+    font-size: bold;
+}
+
+@media (max-width: 768px) {
+    #tamu {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically on small screens */
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #nama-sambutan {
+        margin-top: 10px;  /* Move it below the text */
+        display: block;  /* Make it a block element, pushing it to the next line */
+        font-weight: bold;
+    }
 }
