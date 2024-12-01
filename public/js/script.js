@@ -154,8 +154,8 @@ function handleSubmit(event) {
         }
     });
 
-    const fetchUrl = process.env.NEXT_PUBLIC_FETCH_URL;
-    fetch(fetchUrl, {
+    // const fetchUrl = process.env.NEXT_PUBLIC_FETCH_URL;
+    fetch('https://script.google.com/macros/s/AKfycbzhgRwAb5OA4R4tGQn5H2eDpsrUs3_xLs0w87Xx4f-sQjwNSKSfPhIofn13lKNuImeK7A/exec', {
         method: 'POST',
         mode: 'no-cors', // No CORS to avoid browser restrictions
         cache: 'no-cache',
