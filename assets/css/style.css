@@ -371,7 +371,7 @@ body.transition {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("/assets/images/IMG_0666.jpg");
+    background-image: url("/assets/images/compressed/IMG_0666.jpg");
     background-position: center 40%;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -393,29 +393,6 @@ body.transition {
     );
     z-index: 3;
 }
-
-/* #hero-section::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-} */
-
-/* #hero-section {
-    width: 100%;
-    height: 100%;
-    background: url("../images/IMG_0666.JPG") top left;
-    background-size: cover;
-    position: relative;
-    background-position: center;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 #hero-section .container {
     position: relative;

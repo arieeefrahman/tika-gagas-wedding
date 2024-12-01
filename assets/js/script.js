@@ -1,4 +1,3 @@
-
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -16,9 +15,6 @@ window.onload = function() {
         namaSambutan.innerText = "Bapak/Ibu/Saudara/i";
     }
 }
-
-
-// ////////////////////////
 
 // music
 var tempMusic = ''
@@ -115,44 +111,6 @@ var x = setInterval(function () {
     }
 }, 1000);
 
-// const urlParams= new URLSearchParams(window.location.search);
-// const panggilan = urlParams.get('p')
-// const nama = urlParams.get('n')
-// const namaTamuUndangan = urlParams.get('to')
-// const namaSambutan = document.querySelector('#nama-sambutan')
-
-// // Check if both panggilan and nama are null or empty
-// if (!panggilan && !nama) {
-//     namaSambutan.innerText = "Bapak/Ibu/Saudara/i";
-// } else {
-//     // Otherwise, set the text to panggilan and nama
-//     namaSambutan.innerText = `${panggilan ? panggilan : ''} ${nama ? nama : ''}`.trim();
-// }
-
-
-// copy text
-
-// function copyText(el) {
-//     var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim()
-
-//     var temp = document.createElement("textarea")
-
-//     document.body.appendChild(temp)
-
-//     temp.value = content.replace(/\s+/g, '')
-//     temp.select() 
-
-//     document.execCommand("copy")
-
-//     document.body.removeChild(temp)
-
-//     jQuery(el).text('Berhasil disalin!')
-
-//     setTimeout(function () {
-//         jQuery(el).html(`<i class="fas fa-regular fa-copy"></i> Copy`)
-//     })
-// }
-
 function copyText(el) {
     var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim()
 
@@ -228,70 +186,3 @@ function handleSubmit(event) {
 
     console.log('Data RSVP:', formData);
 }
-
-
-// function handleSubmit(event) {
-//     event.preventDefault();
-    
-//     const formData = {
-//         nama: document.getElementById('nama').value,
-//         ucapan: document.getElementById('ucapan').value,
-//         kehadiran: document.getElementById('kehadiran').value,
-//         timestamp: new Date().toISOString(),
-//         tamu: decodeURIComponent(getQueryParam('to') || '')
-//     };
-
-//     // Di sini Anda bisa menambahkan kode untuk mengirim data ke server
-//     // atau menyimpan ke spreadsheet menggunakan Google Apps Script
-
-//     fetch('https://script.google.com/macros/s/AKfycbzhgRwAb5OA4R4tGQn5H2eDpsrUs3_xLs0w87Xx4f-sQjwNSKSfPhIofn13lKNuImeK7A/exec', {
-//         method: 'POST',
-//         mode: 'no-cors', // Tambahkan ini
-//         cache: 'no-cache',
-//         credentials: 'omit',
-//         body: JSON.stringify(formData),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(formData)
-//     })
-//     .then(response => {
-//             alert('Terima kasih atas konfirmasi Anda!');
-//             event.target.reset();
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//         alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
-//         event.target.reset();
-//     });
-
-//     console.log('Data RSVP:', formData);
-// }
-
-// Copy Text Function
-// function copyText(el) {
-//     try {
-//         // Find the card number element 
-//         const cardContainer = el.closest('.card-container');
-//         const cardNumberEl = cardContainer.querySelector('.card-number');
-        
-//         if (!cardNumberEl) return;
-
-//         // Get the text content and remove extra whitespace
-//         const content = cardNumberEl.textContent.trim().replace(/\s+/g, '');
-        
-//         // Use modern clipboard API
-//         navigator.clipboard.writeText(content).then(() => {
-//             el.textContent = 'Berhasil disalin!';
-            
-//             // Revert back to original text after 2 seconds
-//             setTimeout(() => {
-//                 el.innerHTML = `<i class="fas fa-regular fa-copy"></i> Copy`;
-//             }, 2000);
-//         }).catch(err => {
-//             console.error('Failed to copy text: ', err);
-//         });
-//     } catch (error) {
-//         console.error('Error in copyText function: ', error);
-//     }
-// }
