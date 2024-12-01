@@ -112,23 +112,18 @@ var x = setInterval(function () {
 }, 1000);
 
 function copyText(el) {
-    var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim()
+    var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim();
+    var cleanContent = content.replace(/\s+/g, '');
 
-    var temp = document.createElement("textarea")
-
-    document.body.appendChild(temp)
-
-    temp.value = content.replace(/\s+/g, '')
-    temp.select() 
-
-
-    navigator.clipboard.writeText(content).then(() => {
+    // Use navigator.clipboard.writeText instead of the textarea method
+    navigator.clipboard.writeText(cleanContent).then(() => {
         jQuery(el).text('Berhasil disalin!')
-
         setTimeout(() => {
             el.innerHTML = `<i class="fas fa-regular fa-copy"></i> Copy`;
         }, 2000);
-    })
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
 }
 
 function handleSubmit(event) {
