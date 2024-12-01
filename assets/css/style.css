@@ -556,6 +556,14 @@ body.transition {
     background-color: var(--white);
 }
 
+#gift-section {
+    background-color: var(--white);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
 .border-brown {
     border-radius: 15px;
     border: 2px solid var(--brown);
@@ -567,7 +575,7 @@ body.transition {
 }
 
 .credit-card {
-    background-color: white;
+    background-color: var(--white);
     color: var(--dark);
     background-size: cover;
     border-radius: 15px;
