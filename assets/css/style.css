@@ -1,7 +1,6 @@
 :root {
     --dark: #151515;
     --white: #FEFAE0;
-    --grey: #E2DBD6;
     --light-grey: #d4d4d4;
     --grey: #B4ABAA;
     --dark-grey: #837B75;
@@ -18,6 +17,10 @@ html {
 
 * {
     font-family: 'Work Sans', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
 }
 
 body.transition {
@@ -100,8 +103,6 @@ body.transition {
     transform-origin: center right;
 }
 
-
-
 .heading-door.left {
     left: 0;
 }
@@ -121,7 +122,6 @@ body.transition {
 .tulisan-bawah-span {
     margin: 0 15px;
 }
-
 
 /* Responsive Styles for Door Section */
 @media screen and (max-width: 1200px) {
@@ -205,6 +205,21 @@ body.transition {
         margin-top: 5rem;
         font-size: 60px;
     }
+
+    #tamu {
+        display: flex;
+        flex-direction: column; /* Stack elements vertically on small screens */
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #nama-sambutan {
+        margin-top: 10px;  /* Move it below the text */
+        display: block;  /* Make it a block element, pushing it to the next line */
+        font-weight: bold;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -278,8 +293,6 @@ body.transition {
     }
 }
 
-
-
 /* Navbar */
 .nav {
     position: fixed;
@@ -288,7 +301,6 @@ body.transition {
     right: 0;
     list-style-type: none;
     display: flex;
-    /* background-color: var(--brown); */
     background-color: #3F2305;
     height: 80px;
     z-index: 1;
@@ -296,7 +308,6 @@ body.transition {
 
 .nav li {
     flex: 1;
-
 }
 
 .nav li a {
@@ -333,7 +344,6 @@ body.transition {
     top: -35px;
     left: 50%;
     transform: translateX(-50%);
-
 }
 
 .nav li a.rotate {
@@ -496,17 +506,6 @@ body.transition {
     background: var(--pink-hover);
 }
 
-.card-acara {
-    width: calc(50%-10px);
-
-}  
-
-@media (max-width: 992px) {
-    .card-acara {
-        width: calc(100%-10px);
-    }
-}
-
 .btn-brown {
     font-family: sans-serif;
     text-transform: uppercase;
@@ -556,8 +555,6 @@ body.transition {
 #gallery-section {
     background-color: var(--white);
 }
-
-
 
 .border-brown {
     border-radius: 15px;
@@ -681,8 +678,7 @@ textarea {
 }
 
 .px-custom {
-    padding-left: 28px !important;  /* Roughly 32px */
-    /* padding-right: 2rem !important; */
+    padding-left: 28px;
 }
 
 
@@ -754,21 +750,4 @@ textarea {
     font-size: 20px;
     display: block;
     font-size: bold;
-}
-
-@media (max-width: 768px) {
-    #tamu {
-        display: flex;
-        flex-direction: column; /* Stack elements vertically on small screens */
-        align-items: center;
-        justify-content: center;
-        font-size: 15px;
-        font-weight: bold;
-    }
-
-    #nama-sambutan {
-        margin-top: 10px;  /* Move it below the text */
-        display: block;  /* Make it a block element, pushing it to the next line */
-        font-weight: bold;
-    }
 }
