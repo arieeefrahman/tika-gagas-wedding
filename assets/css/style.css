@@ -745,6 +745,4 @@ textarea {
 #footer-section .margin-custom-bottom-page {
     margin-bottom: 100px;
     font-size: 20px;
-    color: var(--white);
-    font-weight: bold;
 }
