@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- lightbox2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css" integrity="sha512-xtV3HfYNbQXS/1R1jP53KbFcU9WXiSA1RFKzl5hRlJgdOJm4OxHCWYpskm6lN0xp0XtKGpAfVShpbvlFH3MDAA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+  <body class="overflow-hidden">
+    <audio src="assets/audio/whispered-lumina-239805.mp3" loop class="music"></audio>
+    <audio src="assets/audio/door.wav" class="sound-door"></audio>
+    
+    <!-- door section -->
+    <div id="door-section" class="open" onclick="mulai()">
+        <div class="doors">
+            <div class="door left">
+                <img src="assets/images/doors/door-left.png" alt="left door">
+            </div>
+            <div class="door right">
+                <img src="assets/images/doors/door-right.png" alt="right door">
+            </div>
+        </div>
+        <h1 class="heading-door left huruf-sambung">Tika</h1>
+        <h1 class="heading-door right huruf-sambung">Gagas</h1>
+        <h1 class="huruf-sambung tulisan-bawah" id="tulisan-bawah">Tika <span class="huruf-sambung tulisan-bawah-span">&</span>  Gagas</h1>
+        
+    </div>
+
+    <!-- content section -->
+    <div id="content-section">
+    <!-- navbar -->
+        <ul class="nav">
+        <span class="nav-music"></span>
+        <li>
+            <a href="#acara-section">
+                <i class="fas fa-fw fa-calendar-day"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#lokasi-section">
+                <i class="fas fa-fw fa-location-dot"></i>
+            </a>
+        </li>
+        <!-- <li>
+            <a href="#love-story-section">
+                <i class="fas fa-fw fa-heart"></i>
+            </a>
+        </li> -->
+        <li>
+            <a href="#gallery-section">
+                <i class="fas fa-fw fa-image"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-item-music rotate" id="music-button" onclick="toggleMusic(event)">
+                <i class="fas fa-fw fa-compact-disc"></i>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#gift-section">
+                <i class="fas fa-fw fa-gift"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#rsvp-section">
+                <i class="fas fa-fw fa-check-to-slot"></i>
+            </a>
+        </li>
+        <li>
+            <a href="#close-section">
+                <i class="fas fa-fw fa-check-to-slot"></i>
+            </a>
+        </li>
+        </ul>
+    </div>
+
+    <!-- hero section -->
+    <section id="hero-section">
+        <div class="container text-center content-wrapper">
+            <!-- Top content -->
+            <div class="hero-top">
+                <h2 class="my-2 text-white bold">The Wedding of</h2>
+                <h1 class="my-2 text-white huruf-sambung">Tika & Gagas</h1>
+
+                <h4 class="my-2 text-white fw-bold pt-3">Sabtu, 28 Desember 2024</h4>
+                
+                <div class="row my-3 d-flex justify-content-center" id="countdown-wedding">
+                    <div class="col-lg-8 col-12 d-flex justify-content-center gap-3">
+                        <div class="text-center p-2 rounded text-light">
+                            <h5>0</h5> Hari
+                        </div>
+                        <div class="text-center p-2 rounded text-light">
+                            <h5>0</h5> Jam
+                        </div>
+                        <div class="text-center p-2 rounded text-light">
+                            <h5>0</h5> Menit
+                        </div>
+                        <div class="text-center p-2 rounded text-light">
+                            <h5>0</h5> Detik
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bottom content -->
+            <div class="hero-bottom">
+                
+                <h4 class="my-2 text-white mb-3" id="tamu">Yang Terhormat, <span id="nama-sambutan"></span></h4>
+                <a href="#pembuka-section" class="rounded-pill btn btn-lg btn-get-started py-3">
+                    <i class="fas fa-fw fa-envelope-open-text"></i> Buka Undangan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- pembuka section -->
+    <section id="pembuka-section" class="pembuka-section section-bg py-5">
+        <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center">
+                        <h1 class="text-white text-lg huruf-sambung fw-bold">Assalaamu'alaikum Warrahmatullahi Wabarakatuh</h1>
+                        <h3>بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h3>
+                        <p>Wahai manusia, bertakwalah kepada Tuhanmu yang telah menciptakanmu dari diri yang satu (Adam) dan Dia menciptakan darinya pasangannya (Hawa). Dari keduanya Allah memperkembangbiakkan laki-laki dan perempuan yang banyak. Bertakwalah kepada Allah yang dengan nama-Nya kamu saling meminta dan (peliharalah) hubungan kekeluargaan. Sesungguhnya Allah selalu menjaga dan mengawasimu.</p>
+                        <p class="text-center">(QS An-Nisa' (4) : 1)</p>
+                    </div>
+
+                    <div class="row my-4 justify-content-center">
+                        <div class="col-lg-8 text-center" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+                            <img src="assets/images/IMG_0508.jpeg" alt="wedding" class="img-fluid rounded-pill">
+                        </div>
+                    </div>
+
+                    <div class="row my-3 justify-content-between">
+                        <div class="col rounded" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1500">
+                            <div class="p-2 pt-3 text-center">
+                                <h1 class="text-center huruf-sambung">Pradiyan Gagas Yusdika, A.Md.T.</h1>
+                                <p>Putra dari pasangan:</p>
+                                <p>Bapak Pramono Edi Sasmito (Alm) & Ibu Susiyanti (Almh)</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-1 my-auto" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                            <h1 class="text-center huruf-sambung">&</h1>
+                        </div>
+
+                        <div class="col rounded" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="1500">
+                            <div class="p-2 pt-3 text-center">
+                                <h1 class="text-center huruf-sambung">Riantika, A.Md.T.</h1>
+                                <p>Putri dari pasangan:</p>
+                                <p>Bapak Munir & Ibu Nurbaini (Almh)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- acara section -->
+     <section class="acara-section py-5 mb-5" id="acara-section">
+        <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="row justify-content-center g-3">
+                <div class="section-title">
+                    <h1 class="text-brown text-lg huruf-sambung fw-bold">Acara Pernikahan</h1>
+                     <p>Merupakan kehormatan serta kebahagiaan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa dan restu kepada kedua mempelai.</p>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <div class="border my-2 rounded p-3 card-acara d-flex flex-column" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+                        <h4 class="text-center">Akad Nikah</h4>
+                        <hr>
+                        <div class="flex-grow-1">
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-calendar-day"></i> Sabtu, 28 Desember 2024</p>
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-clock"></i> 08:00 WIB</p>
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-location-dot"></i> Asram Edupark</p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a 
+                                href="https://www.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Tika+%26+Gagas&location=Asram+Edupark%2C+Jl.+Puspita+Baru%2C+Jomblang%2C+Sendangadi%2C+Kec.+Mlati%2C+Kabupaten+Sleman%2C+Daerah+Istimewa+Yogyakarta+55285&dates=20241228T010000Z%2F20241228T020000Z" 
+                                class="btn btn-lg btn-brown rounded-pill"
+                                id="btn-simpan-kalender"
+                                target="_blank">
+                                <i class="fas fa-fw fa-calendar-day"></i> Simpan ke kalender
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <div class="border my-2 rounded p-3 card-acara d-flex flex-column" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+                        <h4 class="text-center">Resepsi</h4>
+                        <hr>
+                        <div class="flex-grow-1">
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-calendar-day"></i> Sabtu, 28 Desember 2024</p>
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-clock"></i> 10:00 WIB - 14:00 WIB</p>
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-location-dot"></i> Asram Edupark</p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a 
+                                href="https://www.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Tika+%26+Gagas&location=Asram+Edupark%2C+Jl.+Puspita+Baru%2C+Jomblang%2C+Sendangadi%2C+Kec.+Mlati%2C+Kabupaten+Sleman%2C+Daerah+Istimewa+Yogyakarta+55285&dates=20241228T030000Z%2F20241228T070000Z" 
+                                class="btn btn-lg btn-brown rounded-pill" 
+                                id="btn-simpan-kalender"
+                                target="_blank">
+                                <i class="fas fa-fw fa-calendar-day"></i> Simpan ke kalender
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <div class="border my-2 rounded p-3 card-acara d-flex flex-column" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+                        <h4 class="text-center">Syukuran</h4>
+                        <hr>
+                        <div class="flex-grow-1">
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-calendar-day"></i> Sabtu, 28 Desember 2024</p>
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-clock"></i> 10:00 WIB - 14:00 WIB</p>
+                            <p class="text-start px-custom"><i class="fas fa-fw fa-location-dot"></i> Rumah Mempelai Pria</p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a 
+                                href="" 
+                                class="btn btn-lg btn-brown rounded-pill" 
+                                id="btn-simpan-kalender"
+                                target="_blank">
+                                <i class="fas fa-fw fa-calendar-day"></i> Simpan ke kalender
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   >
+
+    <!-- lokasi section -->
+
+    <section id="lokasi-section" class="lokasi-section py-5 section-bg">
+        <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="section-title text-center mb-4">
+                <h1 class="text-white text-lg huruf-sambung fw-bold">Lokasi Acara Pernikahan</h1>
+              </div>
+              <div class="row">
+                <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+                  <div class="text-center">
+                    <h3 class="text-white mb-3 fw-bold">Akad Nikah & Resepsi</h3>
+                    <p>Asram Edupark - Jl. Puspita Baru, Jomblang, Sendangadi, Kec. Mlati, Kabupaten Sleman, D. I. Yogyakarta</p>
+                    <div class="ratio ratio-16x9">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.6350071919314!2d110.35037267484358!3d-7.72225249229581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59fe77c449e1%3A0xb9aa4181e1d8e167!2sAsram%20Edupark!5e0!3m2!1sen!2sid!4v1732951667503!5m2!1sen!2sid" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="border border-2 border-white rounded">
+                      </iframe>
+                    </div>
+                    <a href="https://maps.app.goo.gl/GdEnH89y6Lx2qtkf8" target="_blank" class="btn btn-white rounded-pill mb-3 mt-3">
+                        <i class="fas fa-location-dot me-2"></i>Buka di Google Maps
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                  <div class="text-center">
+                    <h3 class="text-white mb-3 fw-bold">Syukuran</h3>
+                    <p>Rumah Mempelai Pria - Jl. Arjuna No 17, Karangjati RT 05 RW 02, Margasari, Kabupaten Tegal</p>
+                    
+                    <div class="ratio ratio-16x9">
+                      <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3959.251621849525!2d109.02193067499813!3d-7.096806992906426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMDUnNDguNSJTIDEwOcKwMDEnMjguMiJF!5e0!3m2!1sen!2sid!4v1733035018588!5m2!1sen!2sid"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="border border-2 border-white rounded">
+                      </iframe>
+                    </div>
+                    <a href="https://maps.app.goo.gl/FUeYXWykVegf6W8G8" target="_blank" class="btn btn-white rounded-pill mb-3 mt-3">
+                        <i class="fas fa-location-dot me-2"></i>Buka di Google Maps
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- gallery section -->
+    <section id="gallery-section" class="gallery-section py-5 section-bg">
+        <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="section-title">
+                <h1 class="huruf-sambung text-lg text-brown fw-bold text-lg">Gallery</h1>
+            </div>
+            <div class="row" data-masonry='{"percentPosition": true }'>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0508.jpeg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0508.jpeg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/IMG_0509.jpeg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/IMG_0509.jpeg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/IMG_0512.jpeg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/IMG_0512.jpeg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0653.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0653.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0656.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0656.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0657.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0657.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0659.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0659.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0664.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0664.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0666.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0666.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0667.jpg" data-lightbox="tikaGagas" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0667.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- old -->
+    <!-- <section id="gallery-section" class="gallery-section py-5 section-bg">
+        <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="section-title">
+                <h1 class="huruf-sambung text-brown fw-bold text-lg">Gallery</h1>
+
+            </div>
+            <div class="row" data-masonry='{"percentPosition": true }'>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0508.jpeg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0508.jpeg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/IMG_0509.jpeg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/IMG_0509.jpeg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/IMG_0512.jpeg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/IMG_0512.jpeg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0653.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0653.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0656.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0656.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0657.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0657.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0659.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0659.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0664.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0664.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0666.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0666.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+                <div class="col-sm-3 col-lg-3 mb-4">
+                    <a href="assets/images/compressed/IMG_0667.jpg" data-lightbox="ariefEndah" class="text-decoration-none">
+                        <img src="assets/images/compressed/IMG_0667.jpg" alt="gambar-1" class="card-img border-brown">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- rsvp section -->
+    <section class="rsvp-section py-5" id="rsvp-section">
+        <div class="container" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h1 class="text-white huruf-sambung fw-bold text-lg">RSVP</h1>
+                        <p>Konfirmasi kehadiran</p>
+                    </div>
+                    <div class="row justify-content-between mx-3 text-center">
+                        <div class="rsvp-form">
+                            <form id="rsvpForm" onsubmit="handleSubmit(event)">
+                                <div class="form-group mb-3">
+                                    <label for="nama" class="form-label">Nama:</label>
+                                    <input type="text" id="nama" name="nama" required>
+                                </div>
+                
+                                <div class="form-group mb-3">
+                                    <label for="ucapan" class="form-label">Ucapan:</label>
+                                    <textarea class="form-control" id="ucapan" name="ucapan" rows="4" required></textarea>
+                                </div>
+                
+                                <!-- <div class="form-group">
+                                    <label for="kehadiran">Konfirmasi Kehadiran:</label>
+                                    <select id="kehadiran" name="kehadiran" required>
+                                        <option value="">Pilih konfirmasi</option>
+                                        <option value="hadir">Hadir</option>
+                                        <option value="tidak_hadir">Tidak Hadir</option>
+                                        <option value="ragu">Masih Ragu</option>
+                                    </select>
+                                </div> -->
+                                <div class="form-group mb-3">
+                                    <label for="kehadiran" class="form-label">Konfirmasi Kehadiran:</label>
+                                    <select class="form-select" id="kehadiran" name="kehadiran" required>
+                                        <option value="" selected disabled>Pilih konfirmasi</option>
+                                        <option value="hadir">Hadir</option>
+                                        <option value="tidak_hadir">Tidak Hadir</option>
+                                        <option value="ragu">Masih Ragu</option>
+                                    </select>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="rounded-pill btn btn-lg btn-brown"><i class="fas fa-fw fa-check-square"></i> Kirim Konfirmasi</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- gift section -->
+    <section id="gift-section" class="gift-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h1 class="huruf-sambung text-lg text-brown fw-bold text-lg">Wedding Gift</h1>
+                        <p>Bagi Bapak/Ibu/Saudara/i yang ingin mengirimkan hadiah pernikahan dapat melalui virtual account atau e-wallet di bawah ini:</p>
+                    </div>
+    
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-12 text-center mb-5">
+                            <button 
+                                type="button" 
+                                class="text-center btn btn-lg btn-brown mb-4 rounded-pill" 
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseHadiah">
+                                <i class="fas fa-fw fa-gift"></i>
+                                Kirim Hadiah
+                            </button>
+                            <div class="collapse" id="collapseHadiah">
+                                <div class="my-4 mx-auto position-relative credit-card">
+                                    <img src="assets/images/cards/logo-bca.png" alt="" class="card-logo">
+                                    <div class="card-container">
+                                        <div class="card-number">8103055332</div>
+                                    </div>
+                                    <div class="card-name mt-2">Pradiyan Gagas Yusdika</div>
+                                    <a style="cursor: pointer;" onclick="copyText(this)" class="copy-button btn btn-light mt-3">
+                                        <i class="fas fa-fw fa-copy"></i> Copy
+                                    </a>
+                                </div>
+    
+                                <div class="my-4 mx-auto position-relative credit-card">
+                                    <img src="assets/images/cards/logo-bca.png" alt="" class="card-logo">
+                                    <div class="card-container">
+                                        <div class="card-number">1221482072</div>
+                                    </div>
+                                    <div class="card-name mt-2">Riantika</div>
+                                    <a style="cursor: pointer;" onclick="copyText(this)" class="copy-button btn btn-light mt-3">
+                                        <i class="fas fa-fw fa-copy"></i> Copy
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- <section id="gift-section" class="gift-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title">
+                        <h1 class="huruf-sambung text-brown fw-bold text-lg">Wedding Gift</h1>
+                        <p>Bagi Bapak/Ibu/Saudara/i yang ingin mengirimkan hadiah pernikahan dapat melalui virtual account atau e-wallet di bawah ini:</p>
+                        
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center mb-5">
+                            <button 
+                                type="button" 
+                                class="text-center btn btn-lg btn-brown mb-4 rounded-pill" 
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseHadiah"
+                                >
+                                <i class="fas fa-fw fa-gift"></i>
+                                Kirim Hadiah
+                            </button>
+                            <div class="collapse" id="collapseHadiah">
+
+                                <div class="my-4 mx-auto position-relative credit-card">
+                                    <img src="assets/images/cards/logo-bca.png" alt="" class="card-logo">
+                                    <div class="card-container">
+                                        <div class="card-number">8103055332</div>
+                                    </div>
+                                    <div class="card-name mt-2">Pradiyan Gagas Yusdika</div>
+                                    <a style="cursor: pointer;" onclick="copyText(this)" class="copy-button btn btn-light mt-3">
+                                        <i class="fas fa-fw fa-copy"></i> Copy
+                                    </a>
+                                </div>
+
+                                <div class="my-4 mx-auto position-relative credit-card">
+                                    <img src="assets/images/cards/logo-bca.png" alt="" class="card-logo">
+                                    <div class="card-container">
+                                        <div class="card-number">1221482072</div>
+                                    </div>
+                                    <div class="card-name mt-2">Riantika</div>
+                                    <a style="cursor: pointer;" onclick="copyText(this)" class="copy-button btn btn-light mt-3">
+                                        <i class="fas fa-fw fa-copy"></i> Copy
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- footer section -->
+    <section id="footer-section" class="footer-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h1 class="huruf-sambung text-lg text-white fw-bold text-lg">Wassamualaikum Warrahmatullahi Wabarakatuh</h1>
+                        
+                    </div>
+                    <div class="text-center margin-custom-bottom-page">
+                        <p>Kami yang berbahagia</p>
+                        <p>Kel. Bapak Munir & Ibu Nurbaini (Almh)</p>
+                        <p>Kel. Bapak Pramono Edi Sasmito (Alm) & Ibu Susiyanti (Almh)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- import script section -->
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- lightbox2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js" integrity="sha512-KbRFbjA5bwNan6DvPl1ODUolvTTZ/vckssnFhka5cG80JVa5zSlRPCr055xSgU/q6oMIGhZWLhcbgIC0fyw3RQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        lightbox.option({
+          'maxWidth': '50px',
+          'maxHeight': '50px',
+          'wrapAround': 'true'
+        })
+    </script>
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    
+    <!-- masonry bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+
+    <!-- js -->
+     <script src="assets/js/script.js"></script>
+  </body>
+</html>
