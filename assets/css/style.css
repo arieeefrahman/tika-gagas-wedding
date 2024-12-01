@@ -557,6 +557,8 @@ body.transition {
     background-color: var(--white);
 }
 
+
+
 .border-brown {
     border-radius: 15px;
     border: 2px solid var(--brown);
@@ -726,6 +728,7 @@ textarea {
 
 #acara-section {
     min-height: 85vh;
+    background-color: var(--white);
 }
 
 #lokasi-section {
