@@ -6,11 +6,11 @@ function getQueryParam(param) {
 // Menampilkan nama tamu
 window.onload = function() {
     const tamu = getQueryParam('to');
-    namaSambutan = document.getElementById('nama-sambutan')
+    namaSambutan = document.getElementById('nama-sambutan');
     if (tamu) {
         // Decode URI untuk menangani emoji dan karakter khusus
         const decodedTamu = decodeURIComponent(tamu);
-        namaSambutan.innerHTML = `${decodedTamu ? decodedTamu : ''}`.trim();
+        namaSambutan.innerHTML = (decodedTamu ? decodedTamu : '').trim(); // Removed the template literal
     } else {
         namaSambutan.innerText = "Bapak/Ibu/Saudara/i";
     }
@@ -18,8 +18,7 @@ window.onload = function() {
 
 // music
 var tempMusic = ''
-music = document.querySelector('.music')
-
+const music = document.querySelector('.music');
 if (tempMusic) {
     music.src = tempMusic
 }
@@ -33,7 +32,7 @@ function mulai() {
     soundDoor.play()
 
     // door section
-    var doorSection = $('#door-section')
+    var doorSection = $('#door-section');
     var doors = document.querySelectorAll('.door')
 
     doors.forEach(function (door, index) {
@@ -88,41 +87,69 @@ var x = setInterval(function () {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
     var seconds = Math.floor((distance % (1000 * 60 )) / 1000)
-    document.getElementById('countdown-wedding').innerHTML = `
-        <div class="col-lg-8 col-12 d-flex justify-content-center gap-5">
-            <div class="text-center p-2 rounded text-light">
-                <h5>${days}</h5> Hari
-            </div>
-            <div class="text-center p-2 rounded text-light">
-                <h5>${hours}</h5> Jam
-            </div>
-            <div class="text-center p-2 rounded text-light">
-                <h5>${minutes}</h5> Menit
-            </div>
-            <div class="text-center p-2 rounded text-light">
-                <h5>${seconds}</h5> Detik
-            </div>
-        </div>
-    `
+    document.getElementById('countdown-wedding').innerHTML =
+    '<div class="col-lg-8 col-12 d-flex justify-content-center gap-5">' +
+    '<div class="text-center p-2 rounded text-light">' +
+    '<h5>' + days + '</h5> Hari' +
+    '</div>' +
+    '<div class="text-center p-2 rounded text-light">' +
+    '<h5>' + hours + '</h5> Jam' +
+    '</div>' +
+    '<div class="text-center p-2 rounded text-light">' +
+    '<h5>' + minutes + '</h5> Menit' +
+    '</div>' +
+    '<div class="text-center p-2 rounded text-light">' +
+    '<h5>' + seconds + '</h5> Detik' +
+    '</div>' +
+    '</div>';
 
     if (distance < 0) {
         clearInterval(x)
         document.getElementById('countdown-wedding').innerHTML = "<span class='text-center p-3 rounded text-light m-2'><h2>Sudah dimulai!</h2></span>"
     }
 }, 1000);
-
 function copyText(el) {
-    var content = jQuery(el).siblings('div.card-container').find('div.card-number').text().trim();
-    var cleanContent = content.replace(/\s+/g, '');
+    const creditCard = $(el).closest('.credit-card');
+    
+    if (!creditCard.length) {
+        console.error('No credit-card container found.');
+        return;
+    }
 
-    // Use navigator.clipboard.writeText instead of the textarea method
+    const cardNumberElement = creditCard.find('.card-number');    
+    if (!cardNumberElement.length) {
+        console.error('No card-number found inside the credit-card container.');
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: 'Gagal menemukan nomor kartu.',
+            confirmButtonText: 'Tutup'
+        });
+        return;
+    }
+
+    const content = cardNumberElement.text().trim();
+    const cleanContent = content.replace(/\s+/g, '');
+
     navigator.clipboard.writeText(cleanContent).then(() => {
-        jQuery(el).text('Berhasil disalin!')
+        $(el).text('Berhasil disalin!');
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Nomor kartu berhasil disalin!',
+            confirmButtonText: 'OK'
+        });
         setTimeout(() => {
-            el.innerHTML = `<i class="fas fa-regular fa-copy"></i> Copy`;
-        }, 2000);
+            $(el).html('<i class="fas fa-fw fa-copy"></i> Copy');
+        }, 3000);
     }).catch(err => {
-        console.error('Failed to copy: ', err);
+        console.error('Failed to copy:', err);
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: 'Gagal menyalin nomor kartu.',
+            confirmButtonText: 'Tutup'
+        });
     });
 }
 
@@ -149,7 +176,6 @@ function handleSubmit(event) {
         }
     });
 
-    // const fetchUrl = process.env.NEXT_PUBLIC_FETCH_URL;
     fetch('https://script.google.com/macros/s/AKfycbzhgRwAb5OA4R4tGQn5H2eDpsrUs3_xLs0w87Xx4f-sQjwNSKSfPhIofn13lKNuImeK7A/exec', {
         method: 'POST',
         mode: 'no-cors', // No CORS to avoid browser restrictions
@@ -167,7 +193,7 @@ function handleSubmit(event) {
             text: 'Konfirmasi Anda telah diterima.',
             confirmButtonText: 'OK'
         });
-        event.target.reset(); // Reset the form
+        event.target.reset();
     })
     .catch(error => {
         Swal.fire({
